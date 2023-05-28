@@ -42,6 +42,8 @@ RUN python3 -m pip install --user -e detectron2_repo
 ENV FVCORE_CACHE="/tmp"
 WORKDIR /home/appuser/detectron2_repo
 
+RUN python3 -m pip install jupyter
+RUN python3 -m pip install "numpy>=1.20"
 # run detectron2 under user "appuser":
 # wget http://images.cocodataset.org/val2017/000000439715.jpg -O input.jpg
 # python3 demo/demo.py  \
