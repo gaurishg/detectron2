@@ -13,7 +13,7 @@ RUN ln -sv /usr/bin/python3 /usr/bin/python
 # USER appuser
 WORKDIR /home/appuser
 
-ENV PATH="/home/appuser/.local/bin:${PATH}"
+ENV PATH="/root/.local/bin:/home/appuser/.local/bin:${PATH}"
 # RUN wget https://bootstrap.pypa.io/pip/3.6/get-pip.py && \
 # 	python3 get-pip.py --user && \
 # 	rm get-pip.py
@@ -27,7 +27,7 @@ RUN python3 -m pip install torch torchvision torchaudio --index-url https://down
 
 RUN python3 -m pip install --user 'git+https://github.com/facebookresearch/fvcore'
 # install detectron2
-RUN git clone https://github.com/facebookresearch/detectron2 detectron2_repo
+RUN git clone https://github.com/gaurishg/detectron2 detectron2_repo
 # set FORCE_CUDA because during `docker build` cuda is not accessible
 ENV FORCE_CUDA="1"
 # This will by default build detectron2 for all common cuda architectures and take a lot more time,
