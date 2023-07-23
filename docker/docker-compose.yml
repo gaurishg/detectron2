@@ -20,7 +20,7 @@ services:
       stack: 67108864
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
-      - /home/gaurish/datasets:/home/appuser/detectron2_repo/datasets:ro
+      - /home/gaurish/datasets:/home/appuser/detectron2_repo/datasets
       - /mnt/c/Users/SudaLab-Rail1/Documents/Code/detectron_files:/home/appuser/detectron2_repo/mycode
     environment:
       - DISPLAY=$DISPLAY
