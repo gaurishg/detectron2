@@ -1,11 +1,13 @@
 version: "2.3"
+name: "detectron2"
 services:
   detectron2:
+    container_name: detectron2
     build:
       context: .
       dockerfile: Dockerfile
-      args:
-        USER_ID: ${USER_ID:-1000}
+      # args:
+      #   USER_ID: ${USER_ID:-1000}
     deploy:
       resources:
         reservations:
@@ -18,9 +20,17 @@ services:
       stack: 67108864
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
+      - /home/gaurish/datasets:/home/appuser/detectron2_repo/datasets:ro
+      - /mnt/c/Users/SudaLab-Rail1/Documents/Code/detectron_files:/home/appuser/detectron2_repo/mycode
     environment:
       - DISPLAY=$DISPLAY
       - NVIDIA_VISIBLE_DEVICES=all
+    ports:
+      - 8888:8888
+    stdin_open: true
+    tty: true
+    # command: bash
+    
     # Uncomment with proper source to access webcam from docker
     # devices: 
     #   - /dev/video0:/dev/video0
